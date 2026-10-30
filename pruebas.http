@@ -1,0 +1,45 @@
+### 1. Salud (200)
+GET http://localhost:3000/health
+
+### 2. Listar productos (200)
+GET http://localhost:3000/api/productos
+
+### 3. Crear producto (201). Copia el id de la respuesta.
+POST http://localhost:3000/api/productos
+Content-Type: application/json
+
+{
+  "nombre": "Taladro inalámbrico",
+  "precio": 349.50,
+  "stock": 8,
+  "categoria": "Herramientas",
+  "activo": true
+}
+
+### 4. Consultar producto (200 o 404)
+GET http://localhost:3000/api/productos/1
+
+### 5. Actualizar producto (200 o 404)
+PATCH http://localhost:3000/api/productos/1
+Content-Type: application/json
+
+{
+  "precio": 329.50,
+  "stock": 6
+}
+
+### 6. Validación fallida (400)
+POST http://localhost:3000/api/productos
+Content-Type: application/json
+
+{
+  "nombre": "X",
+  "precio": -2,
+  "stock": -1
+}
+
+### 7. Eliminar producto (204 o 404)
+DELETE http://localhost:3000/api/productos/1
+
+### 8. Comprobar si se eliminó (404)
+GET http://localhost:3000/api/productos/1
